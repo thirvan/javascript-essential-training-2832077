@@ -30,5 +30,7 @@ const laptop = {
         displayPort: 0,
         others: null
     },
-    fingerPrintSensor: true
+    fingerPrintSensor: true,
+    faceRecognition: true
+
 }
