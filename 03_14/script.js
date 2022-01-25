@@ -27,9 +27,53 @@ const firstBook = new Book(
   12345678,
   "Harry Potter and the Philosopher's Stone",
   "J.K. Rowling",
-  "4 November 2001"
+  "26 June"
+);
+
+const secondBook = new Book(
+  12345678,
+  "Harry Potter and the Chamber of Secrets",
+  "J.K. Rowling",
+  "2 July 1998"
+);
+
+const thirdBook = new Book(
+  12345678,
+  "Harry Potter and the Prisoner of Azkaban",
+  "J.K. Rowling",
+  "8 July 1999"
+);
+
+const fourthBook = new Book(
+  12345678,
+  "Harry Potter and the Goblet of Fire",
+  "J.K. Rowling",
+  "8 July 2000"
+);
+
+const fifthBook = new Book(
+  12345678,
+  "Harry Potter and the Order of the Phoenix",
+  "J.K. Rowling",
+  "27 June 2003"
 );
 
 console.log("The firstBook object:", firstBook);
 console.log("The book was published on:", firstBook.publishedDate);
 console.log("The book is", firstBook.bookAge(), "days old");
+
+console.log("The secondBook object:", secondBook);
+console.log("The book was published on:", secondBook.publishedDate);
+console.log("The book is", secondBook.bookAge(), "days old");
+
+console.log("The third Book object:", thirdBook);
+console.log("The book was published on:", thirdBook.publishedDate);
+console.log("The book is", thirdBook.bookAge(), "days old");
+
+console.log("The fourth Book object:", fourthBook);
+console.log("The book was published on:", fourthBook.publishedDate);
+console.log("The book is", fourthBook.bookAge(), "days old");
+
+console.log("The fifth Book object:", fifthBook);
+console.log("The book was published on:", fifthBook.publishedDate);
+console.log("The book is", fifthBook.bookAge(), "days old");
