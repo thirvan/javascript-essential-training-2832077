@@ -60,3 +60,18 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+const navContent = `
+    <ul>
+      <li><a href="#">home</a></li>
+      <li><a href="#">about</a></li>
+      <li><a href="#">projects</a></li>
+      <li><a href="#">contact</a></li>
+      <li><a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">surprise</a></li>
+    </ul>
+`
+const header = document.querySelector(".siteheader");
+const newNav = document.createElement("nav");
+newNav.innerHTML = navContent;
+
+header.after(newNav);
