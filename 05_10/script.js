@@ -70,8 +70,9 @@ const ulContent = `
 `
 const header = document.querySelector(".siteheader");
 const newNav = document.createElement("nav");
+newNav.classList.add("main-navigation");
 const newUl = document.createElement("ul");
 newNav.append(newUl);
 newUl.innerHTML = ulContent;
 
-header.after(newNav);
+header.append(newNav);
