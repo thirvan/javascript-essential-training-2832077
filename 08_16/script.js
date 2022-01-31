@@ -8,7 +8,7 @@
 import Backpack from "./components/Backpack.js";
 import backpackObjectArray from "./components/data.js";
 
-const everydayPack = new Backpack(
+const backpack = new Backpack(
   "pack01",
   "Everyday Backpack",
   30,
@@ -21,48 +21,46 @@ const everydayPack = new Backpack(
   "../assets/images/everyday.svg"
 );
 
-const content = `
+const content = backpackObjectArray.map((backpack) => {
+  let backpackArticle = document.createElement("article");
+  backpackArticle.classList.add("backpack");
+
+  backpackArticle.setAttribute("id", backpack.id);
+
+  backpackArticle.innerHTML = `
     <figure class="backpack__image">
-      <img src=${everydayPack.image} alt="" />
+      <img src=${backpack.image} alt="" />
     </figure>
-    <h1 class="backpack__name">${everydayPack.name}</h1>
+    <h1 class="backpack__name">${backpack.name}</h1>
     <ul class="backpack__features">
       <li class="packprop backpack__volume">Volume:<span> ${
-        everydayPack.volume
+        backpack.volume
       }l</span></li>
       <li class="packprop backpack__color">Color:<span> ${
-        everydayPack.color
+        backpack.color
       }</span></li>
-      <li class="backpack__age">Age:<span> ${everydayPack.backpackAge()} days old</span></li>
+      <li class="backpack__age">Age:<span> ${backpack.backpackAge()} days old</span></li>
       <li class="packprop backpack__pockets">Number of pockets:<span> ${
-        everydayPack.pocketNum
+        backpack.pocketNum
       }</span></li>
       <li class="packprop backpack__strap">Left strap length:<span> ${
-        everydayPack.strapLength.left
+        backpack.strapLength.left
       } inches</span></li>
       <li class="packprop backpack__strap">Right strap length:<span> ${
-        everydayPack.strapLength.right
+        backpack.strapLength.right
       } inches</span></li>
       <li class="feature backpack__lid">Lid status:<span> ${
-        everydayPack.lidOpen ? "open" : "closed"
+        backpack.lidOpen ? "open" : "closed"
       }</span></li>
     </ul>
   
-`;
+  `;
+
+  return backpackArticle;
+});
 
 const main = document.querySelector(".maincontent");
 
-const newArticle = document.createElement("article");
-newArticle.classList.add("backpack");
-newArticle.setAttribute("id", "everyday");
-newArticle.innerHTML = content;
-
-main.append(newArticle);
-
-backpackObjectArray.forEach((item) => {
-  let newArticle = document.createElement("article");
-  newArticle.setAttribute("id", item.id);
-  newArticle.innerHTML = content;
-  console.log(newArticle);
-  main.append(newArticle);
+content.forEach((backpack) => {
+  main.append(backpack);
 })
