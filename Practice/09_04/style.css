@@ -22,3 +22,7 @@ body {
   height: 6rem;
   background-color: hsl(0, 0%, 90%);
 }
+
+.redOutline {
+  border: 2px solid red;
+}
