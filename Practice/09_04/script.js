@@ -8,18 +8,58 @@
 
 const gridContainer = document.querySelector(".grid");
 
+/**
+* Add a red outline to grid when mouse enters it
+*/
 gridContainer.addEventListener(
     "mouseenter",
     () => {
-        gridContainer.classList.toggle("redOutline");
+        gridContainer.classList.add("redOutline");
     }
 );
 
+/**
+* Removes the red outline from grid when mouse leaves it
+*/
 gridContainer.addEventListener(
     "mouseleave",
     () => {
-        gridContainer.classList.toggle("redOutline");
+        gridContainer.classList.remove("redOutline");
     }
 );
 
-console.log(gridContainer);
+const randColor = () => {
+    let hexColor = Math.floor(Math.random() * 16777215).toString(16);
+    return hexColor;
+};
+
+const gridCells = document.querySelectorAll(".cell");
+
+gridCells.forEach((cell) => {
+    // Color outline when cell is hovered
+    cell.addEventListener(
+        "mouseenter",
+        () => {
+            cell.style.outline= `2px solid #${randColor()}`;
+        }
+    )
+    // Remove outline when cell is exited
+    cell.addEventListener(
+        "mouseleave",
+        () => {
+            cell.style.outline= "";
+        }
+    )
+
+    cell.addEventListener(
+        "click",
+        () => {
+            if (cell.style.backgroundColor) {
+                cell.style.backgroundColor = "";
+            } else {
+                cell.style.backgroundColor = `#${randColor()}`;
+            }
+        }
+    )
+
+})
