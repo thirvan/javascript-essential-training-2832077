@@ -40,7 +40,7 @@ gridCells.forEach((cell) => {
     cell.addEventListener(
         "mouseenter",
         () => {
-            cell.style.outline= `2px solid #${randColor()}`;
+            cell.style.outline= `5px solid #${randColor()}`;
         }
     )
     // Remove outline when cell is exited
@@ -61,5 +61,15 @@ gridCells.forEach((cell) => {
             }
         }
     )
+});
 
-})
+const body = document.body;
+body.addEventListener(
+    "keydown",
+    (event) => {
+        console.log(event.code);
+
+    if (event.code === "KeyD") {
+        body.style.backgroundColor = `#${randColor()}`;
+    }
+    });
