@@ -6,6 +6,7 @@
  * - Append each backpack object to the <main> element.
  */
 import Backpack from "./components/Backpack.js";
+import backpackObjectArray from "./components/data.js";
 
 const everydayPack = new Backpack(
   "pack01",
@@ -57,3 +58,11 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+
+backpackObjectArray.forEach((item) => {
+  let newArticle = document.createElement("article");
+  newArticle.setAttribute("id", item.id);
+  newArticle.innerHTML = content;
+  console.log(newArticle);
+  main.append(newArticle);
+})
