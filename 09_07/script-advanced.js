@@ -39,6 +39,14 @@ const lidToggle = function (event, button, newArg) {
     ? (status.innerText = "open")
     : (status.innerText = "closed");
 };
+const createStrapLengthForm = (side) => {
+  let newForm = document.createElement("form");
+  newForm.setAttribute("action", "submit");
+  newForm.innerHTML = `<input type="text" placeholder="New ${side} length">
+  <button>Update</button>`
+
+  return newForm;
+}
 
 const backpackList = backpackObjectArray.map((backpack) => {
   let backpackArticle = document.createElement("article");
@@ -76,6 +84,15 @@ const backpackList = backpackObjectArray.map((backpack) => {
 
   let button = backpackArticle.querySelector(".lid-toggle");
   let newArg = "The argument I want to pass to the callback function!";
+
+  let straps = backpackArticle.querySelectorAll(".backpack__strap");
+
+  var test;
+  straps.forEach((strap) => {
+    let dataSide = strap.getAttribute("data-side");
+    test = createStrapLengthForm(dataSide); 
+    strap.append(test);
+  });
 
   // Add event listener
   button.addEventListener("click", (event) => {
